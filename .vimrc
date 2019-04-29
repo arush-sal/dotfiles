@@ -4,6 +4,9 @@ syntax on
 set shiftwidth=4                " Set number of spaces to be inserted for indentation
 set tabstop=4                   " Set number of spaces to be inserted when tab is pressed
 
+let s:counter = 0
+let s:timer = -1
+
 set mouse=a                     " Enable support for mouse
 
 set noerrorbells                " No beeps
@@ -109,4 +112,7 @@ endif
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
 "let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor
 set balloonexpr=go#tool#DescribeBalloon()
+set ttymouse=sgr
+set balloondelay=250
+set ballooneval
 set balloonevalterm
