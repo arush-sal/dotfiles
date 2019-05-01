@@ -4,6 +4,7 @@ declare -a modes=( mirrored extended hdmi-only lcd-only )
 
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="i3 restart"
+DISPLAY_RESET="xrandr --auto --output eDP-1 --primary --dpi 96"
 
 function get_index {
 	value="$@"
@@ -38,7 +39,7 @@ function switch_setup {
 			$($I3_RESTART)
 		;;		
 		* | "" )
-			xrandr --auto --output eDP-1 --primary
+			$DISPLAY_RESET
 			echo "mirrored" > $MONITOR_SETUP
 			$($I3_RESTART)
 		;;
@@ -49,7 +50,7 @@ if [ -e $MONITOR_SETUP ]; then
 	CURRENT_SETUP=$(cat $MONITOR_SETUP)
 else
 	echo "" > $MONITOR_SETUP
-	xrandr --auto --output eDP-1 --primary
+	$DISPLAY_RESET
 	$($I3_RESTART)
 fi
 
@@ -60,6 +61,6 @@ if xrandr|grep -q "HDMI-1 connected"; then
 	echo ${modes[$index]} > $MONITOR_SETUP
 else
 	rm $MONITOR_SETUP
-	xrandr --auto --output eDP-1 --primary
+	$DISPLAY_RESET
 	$($I3_RESTART)
 fi
