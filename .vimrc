@@ -103,10 +103,10 @@ augroup mydelimitMate
 augroup END
 
 "----------MOUSE SUPPORT IN TMUX-----------------
-if &term =~ '^screen'
+"if &term =~ '^screen'
    " tmux knows the extended mouse mode
-   set ttymouse=xterm2
-endif
+"   set ttymouse=xterm2
+"endif
 
 "----------VIM GO SETTINGS-----------------------
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
