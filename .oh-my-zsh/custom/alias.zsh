@@ -6,3 +6,4 @@ alias minikube-update='sudo curl -Lo /usr/local/bin/minikube https://storage.goo
 && sudo chmod +x /usr/local/bin/minikube'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias gdrive='docker run -v /home/salil/Videos/:/root -it arush/gdrive sh'
+alias kk='kubectl krew'

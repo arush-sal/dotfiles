@@ -19,27 +19,24 @@ set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set nowritebackup               " Don't create backup files on successful write
 set nowrap						" Disable line wrapping
-" speed up syntax highlighting
-set nocursorcolumn
-set nocursorline
-
 set autoread                    " Automatically reread changed files without asking me anything
 
+set colorcolumn=80				" Create a ruler at 80th column 
 set ruler                       " Show the cursor position all the time
 set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
-set smartcase                   " ... but not when search pattern contains upper case characters
+set smartcase                   " But not when search pattern contains upper case characters
 set foldmethod=syntax			" Set block folding to language syntax
-set foldlevelstart=1
+set foldlevelstart=1			" Set default code block fold level
 
 syntax sync minlines=256
 set synmaxcol=300
 set re=1
 
-" Make Vim to handle long lines nicely.
-set colorcolumn=80		" Create a ruler at 80th column 
-set nocompatible
+" speed up syntax highlighting
+set nocursorcolumn
+set nocursorline
 
 filetype off 
 
@@ -83,11 +80,6 @@ highlight ColorColumn ctermbg=grey
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
 
-augroup mySyntastic
-    au!
-    au FileType tex let b:syntastic_mode = "passive"
-augroup END
-
 "---------GIT SETTINGS--------------
 hi clear SignColumn
 let g:airline#extensions#hunks#non_zero_only = 1
@@ -97,22 +89,22 @@ let delimitMate_expand_cr = 1
 augroup mydelimitMate
     au!
     au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-    au FileType tex let b:delimitMate_quotes = ""
-    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
     au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
 "----------MOUSE SUPPORT IN TMUX-----------------
-"if &term =~ '^screen'
+if &term =~ '^screen'
    " tmux knows the extended mouse mode
-"   set ttymouse=xterm2
-"endif
+   set ttymouse=xterm2
+endif
 
 "----------VIM GO SETTINGS-----------------------
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
-"let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor
 set balloonexpr=go#tool#DescribeBalloon()
 set ttymouse=sgr
 set balloondelay=250
 set ballooneval
 set balloonevalterm
+
+
+autocmd FileType * set formatoptions-=cro	" Disable comment continuation to the next line
