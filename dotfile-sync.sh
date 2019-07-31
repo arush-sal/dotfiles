@@ -23,6 +23,8 @@ checkdiff() {
 }
 
 ##Files
+# Sync .gitconfig
+checkdiff ~/.gitconfig $DOTDIR/.gitconfig
 # Sync .zshrc
 checkdiff ~/.zshrc $DOTDIR/.zshrc
 # Sync .tmux
