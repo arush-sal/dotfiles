@@ -48,5 +48,8 @@ if [[ -n $(git status -s) ]]; then
 	git status
 	echo $DASHLINE
 	git add .
-	git commit -s -a -m "Sync recent changes"
+	git yolo
+	if [[ $? -ne 0 ]]; then
+		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
+	fi
 fi
