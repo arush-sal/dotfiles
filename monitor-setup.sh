@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-declare -a modes=( mirrored extended hdmi-only lcd-only )
+declare -a modes=( hdmi-only lcd-only mirrored extended )
 
 MONITOR_SETUP="/tmp/monitor_setup"
-I3_RESTART="i3 restart"
+I3_RESTART="/usr/bin/i3-msg restart"
+WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/punisher.png"
 DISPLAY_RESET="xrandr --auto --output eDP-1 --primary --dpi 96"
 
 function get_index {
@@ -23,25 +24,30 @@ function get_index {
 function switch_setup {
 	case "$@" in
 		"extended" )
-			 xrandr --output HDMI-1 --primary --right-of eDP-1
+			xrandr --output HDMI-1 --primary --left-of eDP-1
 			echo "extended" > $MONITOR_SETUP
-			$($I3_RESTART)
+			$I3_RESTART
+			$WALLPAPER_RESET
+
 		;;
 		"lcd-only" )
 			xrandr --auto && xrandr --output HDMI-1 --off --output eDP-1 --primary
 			echo "lcd-only" > $MONITOR_SETUP
-			$($I3_RESTART)
+			$I3_RESTART
+			$WALLPAPER_RESET
 
 		;;
 		"hdmi-only" )
 			xrandr --auto && xrandr --output HDMI-1 --primary --output eDP-1 --off
 			echo "hdmi-only" > $MONITOR_SETUP
-			$($I3_RESTART)
+			$I3_RESTART
+			$WALLPAPER_RESET
 		;;		
 		* | "" )
 			$DISPLAY_RESET
 			echo "mirrored" > $MONITOR_SETUP
-			$($I3_RESTART)
+			$I3_RESTART
+			$WALLPAPER_RESET
 		;;
 	esac
 }
@@ -51,7 +57,8 @@ if [ -e $MONITOR_SETUP ]; then
 else
 	echo "" > $MONITOR_SETUP
 	$DISPLAY_RESET
-	$($I3_RESTART)
+	$I3_RESTART
+	$WALLPAPER_RESET
 fi
 
 if xrandr|grep -q "HDMI-1 connected"; then
@@ -62,5 +69,6 @@ if xrandr|grep -q "HDMI-1 connected"; then
 else
 	rm $MONITOR_SETUP
 	$DISPLAY_RESET
-	$($I3_RESTART)
+	$I3_RESTART
+	$WALLPAPER_RESET
 fi
