@@ -9,4 +9,4 @@
 [push]
 	default = matching
 [alias]
-	yolo = !git commit -a -s -m \"$(curl -s whatthecommit.com/index.txt)\"
+	yolo = !git commit -s -m \"$(curl -s whatthecommit.com/index.txt)\"
