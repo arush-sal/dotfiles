@@ -93,28 +93,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace7
+bindsym $mod+9 workspace $workspace7
+bindsym $mod+0 workspace $workspace7
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace7
+bindsym $mod+Shift+9 move container to workspace $workspace7
+bindsym $mod+Shift+0 move container to workspace $workspace7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -159,6 +159,25 @@ bindsym $mod+r mode "resize"
 ########                        USERSPACE                           ###########
 ###############################################################################
 
+# switch to workspace
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 ""
+
+# workspace assignments
+assign [class="Gnome-terminal"] $workspace1
+assign [class="Google-chrome"] $workspace2
+assign [class="Firefox"] $workspace2
+assign [class="Slack"] $workspace3
+assign [class="Code"] $workspace4
+assign [class="Nautilus"] $workspace5
+assign [class="Steam"] $workspace6
+assign [class="csgo_linux64"] $workspace7
+
 # Lock screen
 bindsym $mod+l exec i3lock -c 000000 
 
@@ -172,9 +191,9 @@ bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
 
 #Default workspace settings
-exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/i3-sensible-terminal;'
-exec i3-msg 'workspace 2; exec /usr/bin/google-chrome;'
-exec i3-msg 'workspace 3; exec /usr/bin/slack'
+exec i3-msg 'exec /usr/bin/i3-sensible-terminal;'
+exec i3-msg 'exec /usr/bin/google-chrome;'
+exec i3-msg 'exec /usr/bin/slack;'
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id copyq 
 exec --no-startup-id volumeicon
