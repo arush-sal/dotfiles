@@ -67,7 +67,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -159,6 +159,25 @@ bindsym $mod+r mode "resize"
 ########                        USERSPACE                           ###########
 ###############################################################################
 
+# You can also use any non-zero value if you'd like to have a border
+#for_window [class=".*"] border pixel 0
+
+# Gaps come in two flavors, inner and outer gaps wherein inner gaps are those 
+# between two adjacent containers (or a container and an edge) and 
+# outer gaps are an additional spacing along the screen edges.
+# With top, left, bottom and right you can specify outer gaps on specific sides,
+# and horizontal and vertical are shortcuts for the respective sides. 
+# <px> stands for a numeric value in pixels and <ws> for either a workspace number or a workspace name.
+
+# gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
+# workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Activate smart borders (only when there are effectively no gaps)
+smart_borders no_gaps
+
 # switch to workspace
 set $workspace1 "1 "
 set $workspace2 "2 "
@@ -207,6 +226,7 @@ bar {
         font pango:monospace 8
         status_command i3status --config ~/.config/i3/status.conf
 		tray_output primary
+		height 25
 }
 
 # Lock screen
