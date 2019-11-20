@@ -1,7 +1,6 @@
 alias container_clean='docker rm $(docker ps -a -q)'
 alias compose="$HOME/.local/bin/docker-compose"
 alias container_kill='docker kill $(docker ps -a -q)'
-alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
 alias minikube-update='sudo curl -Lo /usr/local/bin/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 && sudo chmod +x /usr/local/bin/minikube'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
@@ -12,4 +11,33 @@ alias deploy_helm="kubectl create serviceaccount --namespace kube-system tiller 
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller && \
 helm init --service-account tiller"
 alias ws-lot='cd $GOGITHUB/infracloudio/lot'
-alias gch="git checkout"
+alias gmi="GO111MODULE=on go mod init"
+alias gmd="GO111MODULE=on go mod download"
+alias gmt="GO111MODULE=on go mod tidy"
+alias gmv="GO111MODULE=on go mod vendor"
+alias gbD='git branch -D'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gclean='git clean -fd'
+alias gcm='git checkout master'
+alias gcmsg='git commit -m'
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gch='git checkout'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+alias gfo='git fetch origin'
+alias gl='git pull'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias gpf='git push --force'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias gst='git status'
+alias gshl='git stash list'
+alias gshp='git stash pop'
+alias gsh='git stash'
+alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
