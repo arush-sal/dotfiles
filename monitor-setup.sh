@@ -2,7 +2,6 @@
 
 declare -a modes=( hdmi-only lcd-only extended mirrored )
 
-LOGFILE="/tmp/mon.log"
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
 WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/punisher.png"
@@ -45,7 +44,7 @@ function switch_setup {
 			$WALLPAPER_RESET
 		;;		
 		"mirrored" )
-			xrandr --auto && xrandr --output HDMI-1 --primary --output eDP-1
+			xrandr --auto && xrandr --output HDMI-1 --primary --same-as eDP-1 --output eDP-1
 			echo "hdmi-only" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
@@ -60,10 +59,8 @@ function switch_setup {
 }
 
 if [ -e $MONITOR_SETUP ]; then
-	echo "Monitor setup found" > $LOGFILE
 	CURRENT_SETUP=$(cat $MONITOR_SETUP)
 else
-	echo "Monitor setup not found" > $LOGFILE
 	echo "" > $MONITOR_SETUP
 	$DISPLAY_RESET
 	$I3_RESTART
@@ -71,13 +68,11 @@ else
 fi
 
 if xrandr|grep -q "HDMI-1 connected"; then
-	echo "HDMI connected" >> $LOGFILE
 	get_index $CURRENT_SETUP
 	index=$(( current_index + 1 ))
 	switch_setup ${modes[$index]}
 	echo ${modes[$index]} > $MONITOR_SETUP
 else
-	echo "HDMI not connected" >> $LOGFILE
 	rm $MONITOR_SETUP
 	$DISPLAY_RESET
 	$I3_RESTART
