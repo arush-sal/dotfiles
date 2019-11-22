@@ -23,6 +23,8 @@ checkdiff() {
 }
 
 ##Files
+# Sync monitor-setup
+checkdiff /usr/local/bin/monitor-setup.sh $DOTDIR/monitor-setup.sh
 # Sync .gitconfig
 checkdiff ~/.gitconfig $DOTDIR/.gitconfig
 # Sync .zshrc

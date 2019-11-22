@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-declare -a modes=( hdmi-only lcd-only mirrored extended )
+declare -a modes=( hdmi-only lcd-only extended mirrored )
 
+LOGFILE="/tmp/mon.log"
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
 WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/punisher.png"
-DISPLAY_RESET="xrandr --auto --output eDP-1 --primary --dpi 96"
+DISPLAY_RESET="xrandr --output eDP-1 --auto --primary --dpi 96 --output HDMI-1 --off"
 
 function get_index {
 	value="$@"
-	if [[ ${value} = "lcd-only" || ${value} = "" ]] ; then 
+	if [[ ${value} = "mirrored" || ${value} = "" ]] ; then 
 		current_index=-1
 		return 0
 	fi
@@ -24,14 +25,14 @@ function get_index {
 function switch_setup {
 	case "$@" in
 		"extended" )
-			xrandr --output HDMI-1 --primary --left-of eDP-1
+			xrandr --auto && xrandr --output HDMI-1 --primary --left-of eDP-1
 			echo "extended" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
 
 		;;
 		"lcd-only" )
-			xrandr --auto && xrandr --output HDMI-1 --off --output eDP-1 --primary
+			xrandr --auto && xrandr --output HDMI-1 --off --output eDP-1 --primary --dpi 96
 			echo "lcd-only" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
@@ -43,9 +44,15 @@ function switch_setup {
 			$I3_RESTART
 			$WALLPAPER_RESET
 		;;		
+		"mirrored" )
+			xrandr --auto && xrandr --output HDMI-1 --primary --output eDP-1
+			echo "hdmi-only" > $MONITOR_SETUP
+			$I3_RESTART
+			$WALLPAPER_RESET
+		;;
 		* | "" )
+			echo "" > $MONITOR_SETUP
 			$DISPLAY_RESET
-			echo "mirrored" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
 		;;
@@ -53,8 +60,10 @@ function switch_setup {
 }
 
 if [ -e $MONITOR_SETUP ]; then
+	echo "Monitor setup found" > $LOGFILE
 	CURRENT_SETUP=$(cat $MONITOR_SETUP)
 else
+	echo "Monitor setup not found" > $LOGFILE
 	echo "" > $MONITOR_SETUP
 	$DISPLAY_RESET
 	$I3_RESTART
@@ -62,11 +71,13 @@ else
 fi
 
 if xrandr|grep -q "HDMI-1 connected"; then
+	echo "HDMI connected" >> $LOGFILE
 	get_index $CURRENT_SETUP
 	index=$(( current_index + 1 ))
 	switch_setup ${modes[$index]}
 	echo ${modes[$index]} > $MONITOR_SETUP
 else
+	echo "HDMI not connected" >> $LOGFILE
 	rm $MONITOR_SETUP
 	$DISPLAY_RESET
 	$I3_RESTART
