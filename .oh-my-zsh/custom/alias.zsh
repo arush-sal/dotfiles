@@ -41,3 +41,7 @@ alias gshl='git stash list'
 alias gshp='git stash pop'
 alias gsh='git stash'
 alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
+alias vi='/usr/bin/gvim'
+alias ctx='kubectl ctx'
+alias kgpa="kubectl get pods --all-namespaces"
+alias kfed="kubefedctl"
