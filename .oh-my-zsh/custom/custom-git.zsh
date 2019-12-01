@@ -8,7 +8,7 @@ function custom_git_prompt_info() {
 $(ahead_behind)\
 $(git_current_branch)\
 %{$fg_bold[blue]%}|\
-%{$reset_color%}$(git_current_user_email)\
+%{$reset_color%}$(git_current_user_email)($(git_show_remote_count))\
 $(git_remote_status)\
 $(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
@@ -31,7 +31,11 @@ function parse_git_dirty() {
     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
   fi
   if [[ -n $STATUS ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    if command git diff --quiet; then
+		echo "$ZSH_THEME_GIT_PROMPT_STAGED"
+	else
+		echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+	fi
   else
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
@@ -93,13 +97,13 @@ function ahead_behind() {
         ahead_msg="$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$commits_ahead$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
       fi
       if [[ -n $ahead_msg && -n $behind_msg ]] ; then
-          echo "($ahead_msg$behind_msg)"
+          echo "$ahead_msg$behind_msg"
       fi
       if [[ -n $ahead_msg && ! -n $behind_msg ]] ; then
-          echo "($ahead_msg)"
+          echo "$ahead_msg"
       fi
       if [[ ! -n $ahead_msg && -n $behind_msg ]] ; then
-          echo "($behind_msg)"
+          echo "$behind_msg"
       fi
   fi
 }
@@ -224,6 +228,11 @@ function git_current_user_name() {
 # Usage example: $(git_current_user_email)
 function git_current_user_email() {
   command git config user.email 2>/dev/null
+}
+
+function git_show_remote_count() {
+  #command git remote get-url --all origin | grep -o -E 'github.com[:/].+'
+  command git remote | wc -l
 }
 
 # This is unlikely to change so make it all statically assigned
