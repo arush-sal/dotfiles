@@ -14,3 +14,19 @@
 # # other branch:
 #
 # git rebase upstream/master
+
+minikube-restart() {
+	minikube stop $@;
+	minikube start $@;
+}
+
+goclone(){
+	floc=$(echo "$@" | cut -d ":" -f2| cut -d "." -f1)
+	echo $floc
+	git clone $@ $GOGITHUB/$floc
+}
+
+ggocd(){
+	dir=$(find $GOSRC -maxdepth 3 -iname $1 -type d)
+	cd $dir
+}

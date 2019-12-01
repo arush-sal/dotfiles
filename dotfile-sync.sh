@@ -41,6 +41,7 @@ checkdiff ~/.oh-my-zsh/custom/env.zsh $DOTDIR/.oh-my-zsh/custom/env.zsh
 checkdiff ~/.oh-my-zsh/custom/tmux-ubuntu.zsh $DOTDIR/.oh-my-zsh/custom/tmux-ubuntu.zsh
 checkdiff ~/.oh-my-zsh/custom/tmux-minikube.zsh $DOTDIR/.oh-my-zsh/custom/tmux-minikube.zsh
 checkdiff ~/.oh-my-zsh/custom/custom-git.zsh $DOTDIR/.oh-my-zsh/custom/custom-git.zsh
+checkdiff ~/.oh-my-zsh/custom/func.zsh $DOTDIR/.oh-my-zsh/custom/func.zsh
 # Sync i3
 checkdiff ~/.config/i3/config $DOTDIR/i3/config
 checkdiff ~/.config/i3/status.conf $DOTDIR/i3/status.conf
