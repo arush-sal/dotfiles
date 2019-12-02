@@ -5,10 +5,10 @@ function custom_git_prompt_info() {
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX\
-$(ahead_behind)\
+[$(ahead_behind)]\
 $(git_current_branch)\
-%{$fg_bold[blue]%}|\
-%{$reset_color%}$(git_current_user_email)($(git_show_remote_count))\
+%{$fg_bold[blue]%}|%{$reset_color%}\
+$(git_current_user_email)[$(git_show_remote_count)]\
 $(git_remote_status)\
 $(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
@@ -82,7 +82,7 @@ function git_current_branch() {
     [[ $ret == 128 ]] && return  # no git repo.
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
   fi
-  echo ${ref#refs/heads/}
+  echo "$ZSH_THEME_GIT_BRANCH_COLOR${ref#refs/heads/}"
 }
 
 # Gets the number of commits ahead and behind from remote
