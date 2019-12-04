@@ -21,7 +21,7 @@ minikube-restart() {
 }
 
 goclone(){
-	floc=$(echo "$@" | cut -d ":" -f2| cut -d "." -f1)
+	floc=$(echo "$@" | grep -o -E 'github.com[:/].+')
 	echo $floc
 	git clone $@ $GOGITHUB/$floc
 }
