@@ -45,3 +45,4 @@ alias vi='/usr/bin/gvim'
 alias ctx='kubectl ctx'
 alias kgpa="kubectl get pods --all-namespaces"
 alias kfed="kubefedctl"
+alias youtube-dl='youtube-dl --output "%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s" --all-sub --mark-watched'
