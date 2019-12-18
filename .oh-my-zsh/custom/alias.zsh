@@ -46,3 +46,6 @@ alias ctx='kubectl ctx'
 alias kgpa="kubectl get pods --all-namespaces"
 alias kfed="kubefedctl"
 alias youtube-dl='youtube-dl --output "%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s" --all-sub --mark-watched'
+
+# Required to enable two finger scroll after sleep on Thinkpad E480
+alias enable_finger_scroll='sudo modprobe -r psmouse; sudo modprobe psmouse'
