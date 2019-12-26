@@ -30,6 +30,7 @@ checkdiff ~/.gitconfig $DOTDIR/.gitconfig
 # Sync .zshrc
 checkdiff ~/.zshrc $DOTDIR/.zshrc
 # Sync .tmux
+checkdiff ~/.tmux.conf $DOTDIR/.tmux.conf
 checkdiff ~/.tmux.conf.local $DOTDIR/.tmux.conf.local 
 checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
 # Sync .vimrc
