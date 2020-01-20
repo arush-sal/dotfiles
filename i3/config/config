@@ -204,8 +204,8 @@ bar {
 		height 25
 		colors {
 			set $black #000000
-			set $grey  #0F0F0F
-            set $green #00FF00
+     		set $grey  #0F0F0F
+			set $green #00FF00
 			background $grey
 
             #class               #border #backgr #text
@@ -237,7 +237,20 @@ bindsym Shift+Print exec gnome-screenshot -a
 bindsym XF86Display exec --no-startup-id monitor-setup.sh
 
 
-##
+#########################################################
+################### I3 Gaps Stuffs ######################
+#########################################################
+
+# Gaps come in two flavors, inner and outer gaps wherein inner gaps are those 
+# between two adjacent containers (or a container and an edge) and 
+# outer gaps are an additional spacing along the screen edges.
+# With top, left, bottom and right you can specify outer gaps on specific sides,
+# and horizontal and vertical are shortcuts for the respective sides. 
+# <px> stands for a numeric value in pixels and <ws> for either a workspace number or a workspace name.
+
+# gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
+# workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
+
 # Window and Color
 set $fg #94bff3
 set $bg #3f3f3f
@@ -250,7 +263,6 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
-# Gapps
 # GAP VARIABLES
 set $inner 10
 
@@ -259,26 +271,16 @@ gaps inner $inner
 
 
 # minor aeshthetics
-#for_window [class="^.*"] border pixel 0
-#new_window 1pixel
+for_window [class="^.*"] border pixel 0
+new_window 1pixel
 #bindsym $mod+t border normal
 #bindsym $mod+u border pixel 0
 
 # window rules
-#title_align center
-#for_window [class=".*"] title_format "<b>%title</b>"
+title_align center
+for_window [class=".*"] title_format "<b>%title</b>"
 # You can also use any non-zero value if you'd like to have a border
-#for_window [class=".*"] border pixel 0
-
-# Gaps come in two flavors, inner and outer gaps wherein inner gaps are those 
-# between two adjacent containers (or a container and an edge) and 
-# outer gaps are an additional spacing along the screen edges.
-# With top, left, bottom and right you can specify outer gaps on specific sides,
-# and horizontal and vertical are shortcuts for the respective sides. 
-# <px> stands for a numeric value in pixels and <ws> for either a workspace number or a workspace name.
-
-# gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
-# workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] 2
+for_window [class=".*"] border pixel 1
 
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
