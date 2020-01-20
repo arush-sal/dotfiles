@@ -200,19 +200,20 @@ exec --no-startup-id i3-battery-popup
 bar {
         font pango:monospace 8
         status_command i3status --config ~/.config/i3/status.conf
-		tray_output primary
-		height 25
-		colors {
-			set $black #000000
-     		set $grey  #0F0F0F
-			set $green #00FF00
-			background $grey
+        tray_output primary
+        height 25
+        colors {
+                set $black #000000
+                set $grey  #0F0F0F
+                set $lgrey  #202020
+                set $green #00FF00
+                set $white #FFFFFF
 
-            #class               #border #backgr #text
-            focused_workspace    $bg     $black     $green
-            active_workspace     $bg     $black     $green
-            inactive_workspace   $bg     $black     $green
-            urgent_workspace     $bg     $black     $green
+                #class               #border    #backgr    #text
+                focused_workspace    $green     $black     $green
+                active_workspace     $black     $green     $white
+                inactive_workspace   $black     $lgrey     $green
+                urgent_workspace     $black     $green     $black
         }
 }
 
@@ -238,7 +239,7 @@ bindsym XF86Display exec --no-startup-id monitor-setup.sh
 
 
 #########################################################
-################### I3 Gaps Stuffs ######################
+################### i3 Gaps Stuffs ######################
 #########################################################
 
 # Gaps come in two flavors, inner and outer gaps wherein inner gaps are those 
