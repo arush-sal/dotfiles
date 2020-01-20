@@ -46,6 +46,7 @@ checkdiff ~/.oh-my-zsh/custom/tmux-ubuntu.zsh $DOTDIR/.oh-my-zsh/custom/tmux-ubu
 # Sync i3
 checkdiff ~/.config/i3/config $DOTDIR/i3/config
 checkdiff ~/.config/i3/status.conf $DOTDIR/i3/status.conf
+checkdiff ~/.config/i3/matrix.rasi $DOTDIR/i3/matrix.rasi
 # Sync slim
 checkdiff /etc/slim.conf $DOTDIR/slim/slim.conf
 checkdiff /usr/share/slim/themes/debian-lines/slim.theme $DOTDIR/slim/slim-theme/slim.theme
