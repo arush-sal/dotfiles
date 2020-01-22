@@ -274,7 +274,7 @@ gaps inner $inner
 # minor aeshthetics
 for_window [class="^.*"] border pixel 0
 new_window 1pixel
-#bindsym $mod+t border normal
+bindsym $mod+t border normal
 #bindsym $mod+u border pixel 0
 
 # window rules
