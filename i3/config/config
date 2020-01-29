@@ -241,10 +241,6 @@ bindsym Shift+Print exec gnome-screenshot -a
 #Multi Monitor Cycle-through
 bindsym XF86Display exec --no-startup-id monitor-setup.sh
 
-# Enable popup show even in fullscreen
-popup_during_fullscreen leave_fullscreen
-
-
 #########################################################
 ################### i3 Gaps Stuffs ######################
 #########################################################
