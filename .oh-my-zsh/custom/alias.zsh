@@ -40,12 +40,12 @@ alias grbc='git rebase --continue'
 alias gst='git status'
 alias gshl='git stash list'
 alias gshp='git stash pop'
+alias gshd='git stash drop'
 alias gsh='git stash'
 alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
 alias vi='/usr/bin/gvim'
 alias ctx='kubectl ctx'
 alias kgpa="kubectl get pods --all-namespaces"
-alias kfed="kubefedctl"
 alias youtube-dl='youtube-dl --output "%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s" --all-sub --mark-watched'
 
 # Required to enable two finger scroll after sleep on Thinkpad E480
