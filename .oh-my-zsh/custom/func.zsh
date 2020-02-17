@@ -32,11 +32,11 @@ ggocd(){
 	cd $dir
 }
 
-update_github_tool() {
-	download_url=$(curl -s https://api.github.com/repos/$1/releases/latest | jq -r '.assets[].browser_download_url' | grep "linux-amd64")
-	download_location=/tmp/$2
-	bin_location=$(which $2)
-	echo "\nDownloading $2 in /tmp\n"
+kind_update() {
+	download_url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kind/releases/latest | jq -r '.assets[].browser_download_url' | grep "linux-amd64")
+	download_location=/tmp/kind
+	bin_location=$(which kind)
+	echo "\nDownloading kind in /tmp\n"
 	wget -q --show-progress -c -O $download_location $download_url
 	sudo mv $download_location $bin_location
 	sudo chmod +x $bin_location

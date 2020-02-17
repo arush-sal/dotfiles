@@ -199,9 +199,9 @@ exec --no-startup-id i3-battery-popup
 #Status Bar
 bar {
 		
-		bindsym button1 nop
-   		wheel_up_cmd nop
-	    wheel_down_cmd nop 
+		#bindsym button1 nop
+   		#wheel_up_cmd nop
+	    #wheel_down_cmd nop 
         font pango:monospace 8
         status_command i3status --config ~/.config/i3/status.conf
         tray_output primary
