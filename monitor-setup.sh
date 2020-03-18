@@ -24,7 +24,7 @@ function get_index {
 function switch_setup {
 	case "$@" in
 		"extended" )
-			xrandr --auto && xrandr --output HDMI-1 --primary --left-of eDP-1
+			xrandr --auto && xrandr --output HDMI-1 --primary --right-of eDP-1
 			echo "extended" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
