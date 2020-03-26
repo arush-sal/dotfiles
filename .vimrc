@@ -71,7 +71,7 @@ let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 set background=dark             " Default color theme
 let g:solarized_termcolors=256
-colorscheme solarized           " Color theme
+silent! colorscheme solarized           " Color theme
 
 " Set the 80 column ruler color
 highlight ColorColumn ctermbg=grey 

@@ -1,8 +1,9 @@
- export GOPATH=~/go
+ export GOPATH="$HOME/go"
  export GOBIN="$GOPATH/bin"
  export GOSRC="$GOPATH/src"
  export GOGITHUB="$GOSRC/github.com"
  export GOARUSH="$GOGITHUB/arush-sal"
  export GO111MODULE=on
  export DOCKER_BUILDKIT=1
- export PATH="$PATH:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:\
+/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin"
