@@ -8,9 +8,7 @@ alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias gdrive='docker run -v /home/salil/Videos/:/root -it arush/gdrive sh'
 alias kk='kubectl krew'
 alias suspend="sudo echo; sudo pm-suspend &; i3lock -c 000000"
-alias deploy_helm=' kubectl create serviceaccount --namespace kube-system tiller \ 
-					&& kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller \
-					&& helm init --service-account tiller'
+alias deploy_helm='kubectl create serviceaccount --namespace kube-system tiller && kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller && helm init --service-account tiller'
 alias ws-lot='cd $GOGITHUB/infracloudio/lot'
 alias gmi="GO111MODULE=on go mod init"
 alias gmd="GO111MODULE=on go mod download"
