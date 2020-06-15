@@ -33,6 +33,7 @@ checkdiff ~/.zshrc $DOTDIR/.zshrc
 checkdiff ~/.tmux.conf $DOTDIR/.tmux.conf
 checkdiff ~/.tmux.conf.local $DOTDIR/.tmux.conf.local 
 checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
+checkdiff ~/.tmux/.tmux.conf.local $DOTDIR/.tmux/.tmux.conf.local 
 # Sync .vimrc
 checkdiff ~/.vimrc $DOTDIR/.vimrc
 # Sync oh-my-zsh
