@@ -1,5 +1,5 @@
 alias container_clean='docker rm $(docker ps -a -q)'
-alias compose="$HOME/.local/bin/docker-compose"
+alias compose="/usr/local/bin/docker-compose"
 alias container_kill='docker kill $(docker ps -a -q)'
 alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
