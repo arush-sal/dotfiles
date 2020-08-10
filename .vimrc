@@ -100,11 +100,11 @@ endif
 
 "----------VIM GO SETTINGS-----------------------
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
-set balloonexpr=go#tool#DescribeBalloon()
-set ttymouse=sgr
-set balloondelay=250
-set ballooneval
-set balloonevalterm
+"set balloonexpr=go#tool#DescribeBalloon()
+"set ttymouse=sgr
+"set balloondelay=250
+"set ballooneval
+"set balloonevalterm
 
 
 autocmd FileType * set formatoptions-=cro	" Disable comment continuation to the next line

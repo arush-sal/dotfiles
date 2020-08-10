@@ -95,10 +95,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
- if [ "$TMUX" = "" ]; then
- 	 if [[ -n $(pgrep tmux) ]]; then	
- 		 if tmux ls|grep -q -e "0: ."; then tmux attach-session -t 0; else tmux new-session -s 0; fi
-     else 
-		 tmux new-session -s 0
-	 fi
+ if [ "$SSH_CLIENT" = "" ]; then
+  if [ "$TMUX" = "" ]; then
+  	 if [[ -n $(pgrep tmux) ]]; then	
+  		 if tmux ls|grep -q -e "0: ."; then tmux attach-session -t 0; else tmux new-session -s 0; fi
+      else 
+ 		 tmux new-session -s 0
+ 	 fi
+  fi
  fi

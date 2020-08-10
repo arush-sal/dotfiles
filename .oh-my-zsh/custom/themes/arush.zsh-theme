@@ -1,5 +1,5 @@
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='${ret_status} %{$fg[blue]%}%~%{$reset_color%} $(custom_git_prompt_info)'
+local ret_host="%(?:%{$fg_bold[green]%}%M:%{$fg_bold[red]%}%M)"
+PROMPT='${ret_host} %{$fg[blue]%}%~%{$reset_color%} $(custom_git_prompt_info)'
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
