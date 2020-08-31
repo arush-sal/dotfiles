@@ -47,3 +47,5 @@ alias kgpa="kubectl get pods --all-namespaces"
 
 # Required to enable two finger scroll after sleep on Thinkpad E480
 alias enable_finger_scroll='sudo modprobe -r psmouse; sudo modprobe psmouse'
+
+alias whatprovides='apt-cache search'

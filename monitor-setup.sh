@@ -26,33 +26,33 @@ function switch_setup {
 		"extended" )
 			xrandr --auto && xrandr --output HDMI-1 --primary --right-of eDP-1
 			echo "extended" > $MONITOR_SETUP
-			$I3_RESTART
+			#$I3_RESTART
 			$WALLPAPER_RESET
 
 		;;
 		"lcd-only" )
 			xrandr --auto && xrandr --output HDMI-1 --off --output eDP-1 --primary --dpi 96
 			echo "lcd-only" > $MONITOR_SETUP
-			$I3_RESTART
+			#$I3_RESTART
 			$WALLPAPER_RESET
 
 		;;
 		"hdmi-only" )
 			xrandr --auto && xrandr --output HDMI-1 --primary --output eDP-1 --off
 			echo "hdmi-only" > $MONITOR_SETUP
-			$I3_RESTART
+			#$I3_RESTART
 			$WALLPAPER_RESET
 		;;		
 		"mirrored" )
 			xrandr --auto && xrandr --output HDMI-1 --primary --same-as eDP-1 --output eDP-1
 			echo "hdmi-only" > $MONITOR_SETUP
-			$I3_RESTART
+			#$I3_RESTART
 			$WALLPAPER_RESET
 		;;
 		* | "" )
 			echo "" > $MONITOR_SETUP
 			$DISPLAY_RESET
-			$I3_RESTART
+			#$I3_RESTART
 			$WALLPAPER_RESET
 		;;
 	esac

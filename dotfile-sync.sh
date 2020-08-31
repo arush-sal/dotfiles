@@ -2,6 +2,7 @@
 
 DOTDIR="$HOME/Documents/dotfiles"
 LOGFILE="$HOME/dotsync.log"
+NOTIFY='/usr/bin/notify-send'
 DASHLINE='-----------------------------'
 echo -e "\n""$DASHLINE$(date)$DASHLINE""\n" >> $LOGFILE
 checkdiff() {
@@ -9,7 +10,7 @@ checkdiff() {
 		cp -vrf $1 $2 >> $LOGFILE
 	fi
 	if ! diff $1 $2 &> /dev/null; then
-		notify-send "Sync for $1 started..."
+		$NOTIFY "Sync for $1 started..."
 		echo >> $LOGFILE
 		echo -e "\t\t$1 has been modified" >> $LOGFILE
 		echo "$DASHLINE DIFF START $DASHLINE" >> $LOGFILE

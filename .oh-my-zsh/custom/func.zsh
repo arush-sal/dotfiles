@@ -47,3 +47,8 @@ kubectl_update() {
 	chmod +x ./kubectl
 	sudo mv ./kubectl /usr/local/bin/kubectl
 }
+
+_systemctl_unit_state() {
+  typeset -gA _sys_unit_state
+  _sys_unit_state=( $(__systemctl list-unit-files "$PREFIX*" | awk '{print $1, $2}') )
+}
