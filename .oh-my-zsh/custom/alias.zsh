@@ -42,7 +42,7 @@ alias gshp='git stash pop'
 alias gshd='git stash drop'
 alias gsh='git stash'
 alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
-alias ctx='kubectl ctx'
+alias ctx='kubectx'
 alias kgpa="kubectl get pods --all-namespaces"
 
 # Required to enable two finger scroll after sleep on Thinkpad E480
