@@ -31,9 +31,8 @@ checkdiff $HOME/.gitconfig $DOTDIR/.gitconfig
 # Sync .zshrc
 checkdiff $HOME/.zshrc $DOTDIR/.zshrc
 # Sync .tmux
-checkdiff $HOME/.tmux.conf $DOTDIR/.tmux.conf
-checkdiff $HOME/.tmux.conf.local $DOTDIR/.tmux.conf.local
-checkdiff $HOME/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
+checkdiff $HOME/.tmux/arush.tmux $DOTDIR/.tmux/arush.tmux
+checkdiff $HOME/.tmux/kube.tmux $DOTDIR/.tmux/kube.tmux
 # Sync .vimrc
 checkdiff $HOME/.vimrc $DOTDIR/.vimrc
 # Sync oh-my-zsh
@@ -48,9 +47,6 @@ checkdiff $HOME/.oh-my-zsh/custom/tmux-ubuntu.zsh $DOTDIR/.oh-my-zsh/custom/tmux
 checkdiff $HOME/.config/i3/config $DOTDIR/i3/config
 checkdiff $HOME/.config/i3/status.conf $DOTDIR/i3/status.conf
 checkdiff $HOME/.config/i3/matrix.rasi $DOTDIR/i3/matrix.rasi
-# Sync slim
-checkdiff /etc/slim.conf $DOTDIR/slim/slim.conf
-checkdiff /usr/share/slim/themes/debian-lines/slim.theme $DOTDIR/slim/slim-theme/slim.theme
 # Sync xinitrc
 checkdiff $HOME/.xinitrc $DOTDIR/.xinitrc
 
