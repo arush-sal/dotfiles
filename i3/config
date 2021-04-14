@@ -173,7 +173,7 @@ assign [class="Steam"] $workspace6
 assign [class="csgo_linux64"] $workspace7
 
 # Lock screen
-bindsym $mod+l exec i3lock -c 000000 
+bindsym $mod+l exec i3lock-fancy 
 
 #Cycle through desktops
 bindsym Mod1+Tab workspace next
@@ -236,7 +236,7 @@ bindsym XF86MonBrightnessDown exec brightness-controller -desc 20 # decrease scr
 
 # Printscreen controls
 bindsym Print exec gnome-screenshot
-bindsym Shift+Print exec gnome-screenshot -a
+bindsym $mod+Shift+a exec gnome-screenshot -a
 
 #Multi Monitor Cycle-through
 bindsym XF86Display exec --no-startup-id monitor-setup.sh
