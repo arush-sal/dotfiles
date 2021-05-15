@@ -183,11 +183,14 @@ bindsym $mod+Tab workspace back_and_forth
 # Move workspace between outputs
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Down move workspace to output down
 
 #Default workspace settings
 exec i3-msg 'exec /usr/bin/i3-sensible-terminal;'
 exec i3-msg 'exec /usr/bin/google-chrome;'
 exec i3-msg 'exec /usr/bin/slack;'
+exec i3-msg 'exec /usr/bin/mattermost-desktop;'
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id copyq 
 exec --no-startup-id volumeicon
@@ -195,6 +198,8 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id feh --bg-scale /usr/share/slim/themes/debian-lines/background.png 
 #Battery notification
 exec --no-startup-id i3-battery-popup
+# Authentication agent
+exec --no-startup-id lxpolkit
 
 #Status Bar
 bar {

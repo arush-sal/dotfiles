@@ -1,5 +1,5 @@
 alias container_clean='docker rm $(docker ps -a -q)'
-alias compose="/usr/local/bin/docker-compose"
+alias compose="/home/salil/go/bin/docker-compose"
 alias container_kill='docker kill $(docker ps -a -q)'
 alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
@@ -41,7 +41,7 @@ alias gshl='git stash list'
 alias gshp='git stash pop'
 alias gshd='git stash drop'
 alias gsh='git stash'
-alias git-fork-update='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
+alias git-fork-update='git fetch upstream && git checkout main && git rebase upstream/main && git push origin main'
 alias ctx='kubectx'
 alias kgpa="kubectl get pods --all-namespaces"
 
@@ -49,3 +49,4 @@ alias kgpa="kubectl get pods --all-namespaces"
 alias enable_finger_scroll='sudo modprobe -r psmouse; sudo modprobe psmouse'
 
 alias whatprovides='apt-cache search'
+
