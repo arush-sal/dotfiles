@@ -49,4 +49,4 @@ alias kgpa="kubectl get pods --all-namespaces"
 alias enable_finger_scroll='sudo modprobe -r psmouse; sudo modprobe psmouse'
 
 alias whatprovides='apt-cache search'
-
+alias awscli='$HOME/.local/bin/aws'

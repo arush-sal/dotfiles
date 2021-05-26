@@ -1,0 +1,36 @@
+#!/bin/env bash
+
+if hash curl; then
+    cmd="curl"
+elif hash wget; then
+    cmd="wget"
+elif hash host; then
+    cmd="host"
+fi
+
+get_pubIP() {
+    case $cmd in
+    curl)
+        curl -s https://api.ipify.org > /tmp/pub_ip
+    ;;
+    wget)
+        wget -qO - https://api.ipify.org > /tmp/pub_ip
+    ;;
+    host)
+        host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}' > /tmp/pub_ip
+    ;;
+    *)
+        echo "0.0.0.0" > /tmp/pub_ip
+        exit 1
+    esac
+}
+
+if [ -z $1 ]; then
+    get_pubIP
+    cat /tmp/pub_ip
+else
+    while true; do
+        get_pubIP
+        sleep 900
+    done
+fi

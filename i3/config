@@ -173,7 +173,7 @@ assign [class="Steam"] $workspace6
 assign [class="csgo_linux64"] $workspace7
 
 # Lock screen
-bindsym $mod+l exec i3lock-fancy 
+bindsym $mod+l exec i3lock -c 000000 
 
 #Cycle through desktops
 bindsym Mod1+Tab workspace next
@@ -200,6 +200,8 @@ exec --no-startup-id feh --bg-scale /usr/share/slim/themes/debian-lines/backgrou
 exec --no-startup-id i3-battery-popup
 # Authentication agent
 exec --no-startup-id lxpolkit
+#Get public IP
+exec --no-startup-id public-ip
 
 #Status Bar
 bar {
@@ -230,10 +232,10 @@ bar {
 bindsym $mod+n exec nautilus
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # mute mic
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec brightness-controller -inc 20 # increase screen brightness
