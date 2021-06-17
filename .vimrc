@@ -9,7 +9,7 @@ let s:timer = -1
 
 set mouse=a                     " Enable support for mouse
 
-set noerrorbells                " No beeps
+"set noerrorbells                " No beeps
 set number                      " Show line numbers
 set backspace=indent,eol,start  " Makes backspace key more powerful
 set showcmd                     " Show me what I'm typing
@@ -59,6 +59,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jez/vim-c0'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'majutsushi/tagbar'
+Plugin 'dense-analysis/ale'
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call vundle#end()  
@@ -100,11 +102,50 @@ endif
 
 "----------VIM GO SETTINGS-----------------------
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
-"set balloonexpr=go#tool#DescribeBalloon()
-"set ttymouse=sgr
-"set balloondelay=250
-"set ballooneval
-"set balloonevalterm
+set ttymouse=sgr
+set balloondelay=250
+set ballooneval
+set balloonevalterm
+
+" Returns either the contents of a fold, lint err/warn or godef.
+function! BalloonExpr()
+  let foldStart = foldclosed(v:beval_lnum)
+
+  " check if we are in a fold
+  if foldStart >= 0
+    let foldEnd = foldclosedend(v:beval_lnum)
+    let numLines = foldEnd - foldStart + 1
+    let lines = []
+    " Up to 31 lines get shown okay; beyond that, only 30 lines are shown with
+    " ellipsis in between to indicate too much. The reason why 31 get shown ok
+    " is that 30 lines plus one of ellipsis is 31 anyway.
+    if ( numLines > 31 )
+      let lines = getline( foldStart, foldStart + 14 )
+      let lines += [ '-- Snipped ' . ( numLines - 30 ) . ' lines --' ]
+      let lines += getline( foldEnd - 14, foldEnd )
+    else
+      let lines = getline( foldStart, foldEnd )
+    endif
+
+    "return join( lines, has( "balloon_multiline" ) ? "\n" : " " )
+    call popup_beval(lines, #{mousemoved:'word'})
+    return ""
+  endif
+
+  " check if there is a lint error on the line
+  let l:loclist = get(g:ale_buffer_info, v:beval_bufnr, {'loclist': []}).loclist
+  let l:index = ale#util#BinarySearch(l:loclist, v:beval_bufnr, v:beval_lnum, v:beval_col)
+  " get the lint message if found
+  if l:index >= 0
+    return l:loclist[l:index].text
+  endif
+
+  " use golang as default
+  return go#tool#DescribeBalloon()
+endfunction
+set balloonexpr=BalloonExpr()
 
 
 autocmd FileType * set formatoptions-=cro	" Disable comment continuation to the next line
+
+nnoremap <silent> <F8> :TagbarToggle<CR>	" Set tag fold key
