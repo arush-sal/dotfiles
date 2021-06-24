@@ -202,6 +202,17 @@ exec --no-startup-id i3-battery-popup
 exec --no-startup-id lxpolkit
 # Get public IP
 exec i3-msg 'exec --no-startup-id public-ip start;'
+#-----------------GNOME-i3------------------------#
+# GNOME Settings Daemon
+exec --no-startup-id /usr/lib/gsd-xsettings
+# GNOME power manager
+exec_always --no-startup-id gnome-power-manager
+# polkit-gnome
+# Starts authentication-agent needed to get sudo password check aviable for GUIs needing it.
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# GNOME Flashback
+exec --no-startup-id gnome-flashback
+#-------------------------------------------------#
 
 #Status Bar
 bar {

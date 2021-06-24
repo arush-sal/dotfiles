@@ -30,7 +30,7 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 
 #Enable mouse support
-#set -g mouse on
+set -g mouse on
 
 # Bind shortcut to our function
 bind m run "cut -c3- ~/.tmux/arush.tmux | sh -s _toggle_mouse"
