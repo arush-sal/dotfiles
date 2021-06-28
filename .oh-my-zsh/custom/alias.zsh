@@ -45,8 +45,7 @@ alias git-fork-update='git fetch upstream && git checkout main && git rebase ups
 alias ctx='kubectx'
 alias kgpa="kubectl get pods --all-namespaces"
 
-# Required to enable two finger scroll after sleep on Thinkpad E480
-alias enable_finger_scroll='sudo modprobe -r psmouse; sudo modprobe psmouse'
-
 alias whatprovides='apt-cache search'
 alias remoteLock='DISPLAY=:0 xdotool getactivewindow key Super+l'
+
+alias start-gnome='startx /etc/X11/xinit/xinitrc'
