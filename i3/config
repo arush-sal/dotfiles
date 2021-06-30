@@ -173,7 +173,7 @@ assign [class="Steam"] $workspace6
 assign [class="csgo_linux64"] $workspace7
 
 # Lock screen
-bindsym $mod+l exec i3lock -b -u -i $HOME/Pictures/lock.png -e
+bindsym $mod+l exec lock-i3 
 
 #Cycle through desktops
 bindsym Mod1+Tab workspace next
@@ -194,7 +194,7 @@ exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id copyq
 exec --no-startup-id volumeicon
 exec --no-startup-id blueman-applet
-#exec --no-startup-id feh --bg-scale /usr/share/slim/themes/debian-lines/background.png
+exec --no-startup-id feh --bg-scale $HOME/Pictures/Doom/sigil.png 
 #Battery notification
 exec --no-startup-id i3-battery-popup
 # Get public IP

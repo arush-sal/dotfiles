@@ -49,3 +49,4 @@ alias whatprovides='apt-cache search'
 alias remoteLock='DISPLAY=:0 xdotool getactivewindow key Super+l'
 
 alias start-gnome='startx /etc/X11/xinit/xinitrc'
+alias mirrored='xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --same-as eDP'

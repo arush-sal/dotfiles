@@ -1,0 +1,1 @@
+i3 -V > ~/.config/i3/logfile 2>&1

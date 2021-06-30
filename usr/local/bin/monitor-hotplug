@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+set -o pipefail
+
+# Get the devices.
+DEVICES=$(xrandr | grep -w "connected")
+
+# udev runs as root, so we need to tell it how to connect to the X server:
+export DISPLAY=':0'
+export XAUTHORITY='/home/arush/.Xauthority'
+
+# # Inspired by: https://github.com/jessfraz/dotfiles/blob/master/bin/monitor-hotplug
+
+# # Get the display.
+# displaynum=$(find /tmp/.X11-unix/ -type s | sed s#/tmp/.X11-unix/X##)
+# export DISPLAY=":${displaynum}"
+
+# # From:
+# # 	https://wiki.archlinux.org/index.php/Acpid#Laptop_Monitor_Power_Off
+# xauth=$(ps -C Xorg -f --no-header | sed -n 's/.*-auth //; s/ -[^ ].*//; p')
+# export XAUTHORITY="/home/$(logname)/.Xauthority"
+# echo "XAUTHORITY=/home/$(logname)/.Xauthority" >2
+
+# Iterate over the devices.
+while read -r line; do
+    if [[ -z $cmd ]]; then
+        disp_prim=$(echo $line | cut -d" " -f1)
+        cmd="--output $disp_prim --primary"
+    else
+        cmd="$cmd --output $(echo $line | cut -d" " -f1) --same-as $disp_prim"
+    fi
+done <<< "$DEVICES"
+
+echo -e "\n############################################################################\n"
+echo "xrandr $cmd"
+xrandr -d :0 --output eDP --crtc 0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-1 --crtc 0 --mode 1920x1080 --refresh 60.00 --pos 0x0 --rotate normal
+echo -e "\n############################################################################\n"
+unset cmd
