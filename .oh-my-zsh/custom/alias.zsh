@@ -1,15 +1,15 @@
 alias container_clean='docker rm $(docker ps -a -q)'
-alias compose="/home/salil/go/bin/docker-compose"
+alias compose="$GOBIN/docker-compose"
 alias container_kill='docker kill $(docker ps -a -q)'
 alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
 						&& sudo chmod +x /usr/local/bin/minikube'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
-alias gdrive='docker run -v /home/salil/Videos/:/root -it arush/gdrive sh'
+alias gdrive="docker run -v $HOME/Videos/:/root -it arush/gdrive sh"
 alias kk='kubectl krew'
-alias suspend="sudo echo; sudo pm-suspend &; i3lock -c 000000"
+alias suspend="sudo echo; sudo pm-suspend &; lock-i3"
 alias deploy_helm='kubectl create serviceaccount --namespace kube-system tiller && kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller && helm init --service-account tiller'
-alias ws-lot='cd $GOGITHUB/infracloudio/lot'
+alias ws-lot="cd $GOGITHUB/arush-sal/lot"
 alias gmi="GO111MODULE=on go mod init"
 alias gmd="GO111MODULE=on go mod download"
 alias gmt="GO111MODULE=on go mod tidy"
