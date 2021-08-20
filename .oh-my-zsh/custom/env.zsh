@@ -7,4 +7,4 @@
  export DOCKER_BUILDKIT=1
  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin"
  export MAIL=/var/mail/arush
- export MAILCHECK=86400
+ export MAILCHECK=3600

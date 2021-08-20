@@ -32,24 +32,11 @@ ggocd(){
 	cd $dir
 }
 
-kind_update() {
-	download_url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kind/releases/latest | jq -r '.assets[].browser_download_url' | grep "linux-amd64")
-	download_location=/tmp/kind
-	bin_location=$(which kind)
-	echo "\nDownloading kind in /tmp\n"
-	wget -q --show-progress -c -O $download_location $download_url
-	sudo mv $download_location $bin_location
-	sudo chmod +x $bin_location
-}
-
-kubectl_update() {
-	curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-	chmod +x ./kubectl
-	sudo mv ./kubectl /usr/local/bin/kubectl
-}
-
 _systemctl_unit_state() {
   typeset -gA _sys_unit_state
   _sys_unit_state=( $(__systemctl list-unit-files "$PREFIX*" | awk '{print $1, $2}') )
 }
 
+watch_k8s_resource() {
+	watch "kubectl get $1 $2"
+}

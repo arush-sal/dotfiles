@@ -1,4 +1,4 @@
-local ret_host="%(?:%{$fg_bold[green]%}%M:%{$fg_bold[red]%}%M)"
+local ret_host="%(?:%{$FX[bold]%}%M:%{$FX[bold]$FG[196]%}%M)"
 PROMPT='${ret_host} %{$fg[blue]%}%~%{$reset_color%} $(custom_git_prompt_info)'
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
