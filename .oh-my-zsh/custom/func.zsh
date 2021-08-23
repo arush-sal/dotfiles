@@ -40,3 +40,14 @@ _systemctl_unit_state() {
 watch_k8s_resource() {
 	watch "kubectl get $1 $2"
 }
+
+k8s_getSecretValue() {
+	echo "Namespace: "
+	readline ns
+	echo "Secret: "
+	readline secret
+	echo "Field: "
+	readline field
+	echo "Value: "
+	kubectl get secret --namespace $ns $secret -o jsonpath="{.data.$field}" | base64 --decode
+}
