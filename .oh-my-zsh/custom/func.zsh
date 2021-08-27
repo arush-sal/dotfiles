@@ -38,7 +38,7 @@ _systemctl_unit_state() {
 }
 
 watch_k8s_resource() {
-	watch "kubectl get $1 $2"
+	watch "kubectl get $@"
 }
 
 k8s_getSecretValue() {
