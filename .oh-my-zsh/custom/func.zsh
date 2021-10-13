@@ -54,6 +54,9 @@ k8s_getSecretValue() {
 
 safari-dl() {
 	if [ -e $HOME/Downloads/oreilly.com_cookies.txt ]; then
-		youtube-dl --cookies $HOME/Downloads/oreilly.com_cookies.txt -u sushantsalil@acm.org --all-subs -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $@
+		youtube-dl --cookies $HOME/Downloads/oreilly.com_cookies.txt \
+			--convert-subs srt --embed-sub --ignore-errors --keep-video \
+			--username sushantsalil@acm.org --write-sub --sub-lang en \
+			--output '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $@
 	fi
 }
