@@ -41,7 +41,7 @@ unbind -n C-l
 # Set copy buffer copy to OS clipboard true
 tmux_conf_copy_to_os_clipboard=true
 
-set -g @resurrect-capture-pane-contents 'on'
+# set -g @resurrect-capture-pane-contents 'on'
 
 # Redfine the _toggle_mouse function to have a display message
 # EOF
