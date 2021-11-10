@@ -13,3 +13,5 @@
 	yolo-amend = !git commit --amend -s -m \"$(curl -s whatthecommit.com/index.txt)\"
 [pull]
 	ff = only
+[credential]
+	helper = store
