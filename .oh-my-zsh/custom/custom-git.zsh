@@ -1,4 +1,5 @@
 # Outputs current branch info in prompt format
+
 function custom_git_prompt_info() {
   local ref
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
@@ -14,7 +15,7 @@ $(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
 
-#$(git_commits_ahead)$(git_prompt_ahead)$(git_commits_behind)$(git_prompt_behind)$(git_remote_status)$(git_prompt_status) 
+#$(git_commits_ahead)$(git_prompt_ahead)$(git_commits_behind)$(git_prompt_behind)$(git_remote_status)$(git_prompt_status)
 
 # Checks if working tree is dirty
 function parse_git_dirty() {

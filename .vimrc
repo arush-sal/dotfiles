@@ -62,6 +62,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'majutsushi/tagbar'
 Plugin 'dense-analysis/ale'
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()  
 "-------------- PLUGINS END --------------------

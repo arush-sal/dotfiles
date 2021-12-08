@@ -107,3 +107,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Get MOTD info in the shell
  run-parts /etc/update-motd.d
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
