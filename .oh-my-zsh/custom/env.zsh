@@ -27,3 +27,4 @@
  export FZF_CTRL_R_OPTS='--sort --exact'
 
  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+ [ -f ~/.oh-my-zsh/custom/private.zsh ] && source ~/.oh-my-zsh/custom/private.zsh
