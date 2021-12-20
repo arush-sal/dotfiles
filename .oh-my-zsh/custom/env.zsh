@@ -28,3 +28,5 @@
 
  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
  [ -f ~/.oh-my-zsh/custom/private.zsh ] && source ~/.oh-my-zsh/custom/private.zsh
+ hash kops &> /dev/null && source <(kops completion zsh)
+ hash argocd &> /dev/null && source <(argocd completion zsh)
