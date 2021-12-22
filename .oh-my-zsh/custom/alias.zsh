@@ -55,3 +55,4 @@ alias start-gnome='startx /etc/X11/xinit/xinitrc'
 
 alias hadoling='docker run --rm -i hadolint/hadolint < Dockerfile'
 alias dockerlint='docker run -v `pwd`/Dockerfile:/Dockerfile replicated/dockerfilelint /Dockerfile'
+alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
