@@ -16,4 +16,4 @@
 [credential]
 	helper = store
 [url "git@github.com:"]
-	insteadof = https://github.com/
+	insteadof = https://github.com
