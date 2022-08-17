@@ -67,3 +67,17 @@ gh-cloc() {
   cloc temp-linecount-repo &&
   rm -rf temp-linecount-repo
 }
+
+projInit() {
+	if [[ $1 == "" ]]; then
+		echo "need project name as first argument"
+		break
+	fi
+	projPath="$GOARUSH/$1"
+	stat $projPath &> /dev/null || mkdir $projPath
+	cd $projPath
+	go mod init github.com/arush-sal/$1
+	cobra init $1 --author "Arush Salil" --license "Apache 2.0"
+	mv $1/* .
+	rm -rf ./$1
+}
