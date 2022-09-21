@@ -162,7 +162,7 @@ set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 ""
 set $workspace8 ""
-set $workspace9 ""
+set $workspace9 "9  "
 set $workspace10 "10 "
 # workspace assignments
 assign [class="Gnome-terminal"] $workspace1
@@ -173,6 +173,7 @@ assign [class="Code"] $workspace4
 assign [class="Nautilus"] $workspace5
 assign [class="Steam"] $workspace6
 assign [class="csgo_linux64"] $workspace7
+assign [class="qbittorrent"] $workspace9
 assign [class="fluent-reader"] $workspace10
 # Lock screen
 bindsym $mod+l exec lock-i3 
@@ -198,6 +199,7 @@ exec --no-startup-id volumeicon
 exec --no-startup-id blueman-applet
 exec --no-startup-id feh --bg-scale $HOME/Pictures/Doom/sigil.png 
 exec --no-startup-id /usr/local/bin/rss-reader
+exec --no-startup-id /usr/bin/qbittorrent
 #Battery notification
 exec --no-startup-id i3-battery-popup
 # Get public IP
