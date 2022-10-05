@@ -16,9 +16,9 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}#(/bin/bash $HOM
 set -g history-limit 100000
 
 # Unbind and rebind the prefix
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+unbind C-a
+set -g prefix C-c
+bind C-c send-prefix
 
 # Set window movement to default
 bind p previous-window
