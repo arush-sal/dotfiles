@@ -43,11 +43,11 @@ watch_k8s_resource() {
 
 k8s_getSecretValue() {
 	echo "Namespace: "
-	readline ns
+	read ns
 	echo "Secret: "
-	readline secret
+	read secret
 	echo "Field: "
-	readline field
+	read field
 	echo "Value: "
 	kubectl get secret --namespace $ns $secret -o jsonpath="{.data.$field}" | base64 --decode
 }
