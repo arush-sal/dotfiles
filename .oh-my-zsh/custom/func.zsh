@@ -74,3 +74,5 @@ projInit() {
 	mv $1/* .
 	rm -rf ./$1
 }
+
+gpshb
