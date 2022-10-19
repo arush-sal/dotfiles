@@ -75,4 +75,3 @@ projInit() {
 	rm -rf ./$1
 }
 
-gpshb

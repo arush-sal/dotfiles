@@ -6,7 +6,7 @@
  export GO111MODULE=on
  export DOCKER_BUILDKIT=1
  export DOCKER_HOST=unix:///run/user/1000/docker.sock 
- export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:/usr/local/bin/android-tools"
  export MAIL=/var/mail/arush
  export MAILCHECK=3600
  . "$HOME/.cargo/env"
