@@ -61,4 +61,4 @@ alias clear-recent="rm ~/.local/share/recently-used.xbel"
 alias enable_sdcard="sudo modprobe -r rtsx_pci_sdmmc && sudo modprobe -r rtsx_pci && sudo modprobe rtsx_pci"
 
 alias warp-it="warp-cli connect"
-alias unwarp-it="warp-cli disconnect"
+alias unwarp-it="warp-cli disconnect && sudo systemctl restart systemd-resolved.service"
