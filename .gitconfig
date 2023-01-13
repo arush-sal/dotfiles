@@ -9,8 +9,8 @@
 [push]
 	default = matching
 [alias]
-	yolo = !git commit -s -m \"$(curl -s whatthecommit.com/index.txt)\"
-	yolo-amend = !git commit --amend -s -m \"$(curl -s whatthecommit.com/index.txt)\"
+	yolo = !git commit -s -m \"$(curl -sL whatthecommit.com/index.txt)\"
+	yolo-amend = !git commit --amend -s -m \"$(curl -sL whatthecommit.com/index.txt)\"
 [pull]
 	ff = only
 [credential]
