@@ -62,3 +62,4 @@ alias enable_sdcard="sudo modprobe -r rtsx_pci_sdmmc && sudo modprobe -r rtsx_pc
 
 alias warp-it="warp-cli connect"
 alias unwarp-it="warp-cli disconnect && sudo systemctl restart systemd-resolved.service"
+alias rclone="rclone -P -u -vvvvv --human-readable"
