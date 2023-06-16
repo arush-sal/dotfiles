@@ -192,7 +192,7 @@ bindsym $mod+Ctrl+Down move workspace to output down
 
 #Default workspace settings
 exec i3-msg 'exec /usr/bin/i3-sensible-terminal;'
-exec i3-msg 'exec /usr/bin/google-chrome;'
+exec i3-msg 'exec /usr/bin/google-chrome --enable-logging --v=1;'
 exec i3-msg 'exec --no-startup-id /usr/bin/slack;'
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id copyq
