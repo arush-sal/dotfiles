@@ -233,7 +233,7 @@ function git_current_user_email() {
 
 function git_show_remote_count() {
   #command git remote get-url --all origin | grep -o -E 'github.com[:/].+'
-  command git remote | wc -l
+  command git remote | wc -l | tr -d ' '
 }
 
 # This is unlikely to change so make it all statically assigned
