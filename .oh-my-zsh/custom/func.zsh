@@ -52,15 +52,6 @@ k8s_getSecretValue() {
 	kubectl get secret --namespace $ns $secret -o jsonpath="{.data.$field}" | base64 --decode
 }
 
-safari-dl() {
-	if [ -e $HOME/Downloads/oreilly.com_cookies.txt ]; then
-		youtube-dl --cookies $HOME/Downloads/oreilly.com_cookies.txt \
-			--convert-subs srt --embed-sub --ignore-errors --keep-video \
-			--username sushantsalil@acm.org --write-sub --sub-lang en \
-			--output '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $@
-	fi
-}
-
 projInit() {
 	if [[ $1 == "" ]]; then
 		echo "need project name as first argument"
@@ -74,4 +65,3 @@ projInit() {
 	mv $1/* .
 	rm -rf ./$1
 }
-
