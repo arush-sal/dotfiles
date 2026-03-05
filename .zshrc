@@ -62,7 +62,7 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
- plugins=(git docker zsh-autosuggestions kubectl golang kops gh)
+ plugins=(git docker zsh-autosuggestions kubectl golang kops gh virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,5 +107,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Get MOTD info in the shell
  run-parts /etc/update-motd.d
+ [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+ #NVM completion
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(/usr/bin/mise activate zsh)"

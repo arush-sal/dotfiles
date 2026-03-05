@@ -51,15 +51,11 @@ alias kgpa="kubectl get pods --all-namespaces"
 alias whatprovides='apt-cache search'
 alias remoteLock='DISPLAY=:0 xdotool getactivewindow key Super+l'
 
-alias start-gnome='startx /etc/X11/xinit/xinitrc'
-
-alias hadoling='docker run --rm -i hadolint/hadolint < Dockerfile'
-alias dockerlint='docker run -v `pwd`/Dockerfile:/Dockerfile replicated/dockerfilelint /Dockerfile'
-alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 alias clear-recent="rm ~/.local/share/recently-used.xbel"
 
 alias enable_sdcard="sudo modprobe -r rtsx_pci_sdmmc && sudo modprobe -r rtsx_pci && sudo modprobe rtsx_pci"
 
-alias warp-it="warp-cli register && warp-cli connect"
+alias warp-it="warp-cli connect"
 alias unwarp-it="warp-cli disconnect && sudo systemctl restart systemd-resolved.service"
 alias rclone="rclone -P -u -vvvvv --human-readable --ignore-existing -M --delete-after"
+alias git_clean_branch='git branch --merged | grep -vE "(^\*|main|master)" | xargs git branch -d'

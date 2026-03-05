@@ -65,3 +65,7 @@ projInit() {
 	mv $1/* .
 	rm -rf ./$1
 }
+
+virtualenv_info() {
+	[ $VIRTUAL_ENV ] && echo "%{$fg_bold[blue]%}(%{$reset_color%}$(basename $VIRTUAL_ENV)%{$fg_bold[blue]%})%{$reset_color%}|"
+}
