@@ -4,11 +4,11 @@
  export GOGITHUB="$GOSRC/github.com"
  export GOARUSH="$GOGITHUB/arush-sal"
  export GO111MODULE=on
- export PATH="/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/ProgramData/chocolatey/bin:/Docker/host/bin:/mnt/c/Users/micro/scoop/apps/gpg/current/bin:/mnt/c/Users/micro/scoop/shims:/mnt/c/Users/micro/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/micro/AppData/Local/Programs/Microsoft VS Code/bin:/home/salil/.fzf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT-$HOME/.krew}/bin"
- export MAIL=/var/mail/arush
+ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:$GOBIN:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+ export MAIL="/var/mail/$USER"
  export MAILCHECK=3600
  export GPG_TTY=$(tty)
- [ -f ~/.cargo/env ] && source "~/.cargo/env"
+ [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
  [ -f ~/.oh-my-zsh/custom/private.zsh ] && source ~/.oh-my-zsh/custom/private.zsh
  hash kops &> /dev/null && source <(kops completion zsh)
  hash argocd &> /dev/null && source <(argocd completion zsh)
